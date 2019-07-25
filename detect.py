@@ -57,7 +57,7 @@ def show_detected_img(sess, cls, tensor_dict,
 
 def parse_arg():
     args = argparse.ArgumentParser()
-    args.add_argument('-d', '--data-path', default=0, type=int, help='data path to image or video, default to 0(camera)')
+    args.add_argument('-d', '--data-path', default=0, help='data path to image or video, default to 0(camera)')
     args.add_argument('-pb', '--pb-path', help='frozen inference graph file')
     args.add_argument('-lp', '--label-path', default='labels_map.pbtxt', help='labels dictionary path')
     args.add_argument('-v', '--video', action='store_true', default=False, help='using video or not')
@@ -75,7 +75,7 @@ def main(parsed_args=None, data_path=None, pb_path=None, label_path='label_map.p
         plot = parsed_args.plot if parsed_args.plot is not None else plot
     if not video and data_path.split('.')[-1] == 'mp4':
         raise RuntimeError("Invalid data type with name " + data_path)
-    if data_path != 0 and not os.path.exists(data_path):
+    if data_path != '0' and not os.path.exists(data_path):
         raise FileExistsError(f"Image path not found {data_path}")
     if not os.path.exists(pb_path):
         raise FileExistsError(f"Pb file path not found {pb_path}")
