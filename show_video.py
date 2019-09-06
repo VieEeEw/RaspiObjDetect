@@ -43,7 +43,9 @@ def show_detected_img(sess, cls, tensor_dict, input_tensor, img_data, min_thresh
 
 
 if __name__ == '__main__':
-    pb_path = 'ssd_mobilenet.pb'
+    version_ = input("Select version from [1, 2]")
+    assert version_ in ['1', '2']
+    pb_path = f'ssd_mobilenet_v{version_}.pb'
     label_path = 'label_map.pbtxt'
     classes = label_map_util.create_category_index_from_labelmap(label_path, use_display_name=True)
     with tf.io.gfile.GFile(pb_path, 'rb') as fid:
