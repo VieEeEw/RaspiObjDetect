@@ -155,7 +155,6 @@ def draw_bounding_box_on_image_array(image,
         ymin, xmin, ymax, xmax as relative to the image.  Otherwise treat
         coordinates as absolute.
     """
-    print(image.shape)
     image_pil = Image.fromarray(np.uint8(image)).convert('RGB')
     draw_bounding_box_on_image(image_pil, ymin, xmin, ymax, xmax, color,
                                thickness, display_str_list,

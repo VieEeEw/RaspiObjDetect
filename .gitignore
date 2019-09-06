@@ -103,5 +103,8 @@ venv.bak/
 # mypy
 .mypy_cache/
 
+# model
+frozen_ssd_mobilenet/
+
 # pycharm
 .idea/
